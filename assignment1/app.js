@@ -6,7 +6,6 @@ foodCounterController.$inject = ['$scope'];
 function foodCounterController($scope){
   $scope.food = "";
   $scope.mesg = "";
-  $scope.ifEmpty = "";
 
   $scope.calculateFoods = function(){
 
@@ -16,7 +15,7 @@ function foodCounterController($scope){
     }
     else if (totalFoodCount < 4){
       $scope.mesg = "Enjoy!";
-      console.log(totalFoodCount)
+
     }else{
       $scope.mesg = "Too Much!";
     }
@@ -24,22 +23,22 @@ function foodCounterController($scope){
   function calculateFoodString(string){
     var totalStringValue = 0;
     const foodArray = string.split(",");
-    $scope.ifEmpty = emptyChecker(foodArray);
+    totalStringValue = emptyChecker(foodArray);
     if (foodArray[0]==''){
       totalStringValue = 0;
-    }else{
-      totalStringValue = foodArray.length;
     }
 
     return totalStringValue
   };
   function emptyChecker(arr){
-    for(var i =0 ; i < arr.length ; i++){
+    var arrLength = arr.length;
+    for(var i = 0 ; i < arr.length ; i++){
       if(arr[i] == ''){
-        return "You have empty item in input text"
+        arrLength -= 1;
       }
 
     };
+    return arrLength
 
   };
 
