@@ -11,7 +11,7 @@ function foodCounterController($scope){
 
     var totalFoodCount = calculateFoodString($scope.food);
     if (totalFoodCount == 0){
-      $scope.mesg = "Empty"
+      $scope.mesg = "inpute data first!"
     }
     else if (totalFoodCount < 4){
       $scope.mesg = "Enjoy!";
